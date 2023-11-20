@@ -177,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+
 </ul>
 
     </div>
@@ -378,6 +379,7 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-preprocessing-dan-model"><strong>3. Penjelasan Preprocessing dan Model</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">- - -  <strong>PREPROCESSING</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model">- - -  <strong>MODEL</strong> - - -</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-aplikasi-model-ada-di-www"><strong>Link Aplikasi Model ada di www.</strong></a></li>
 </ul>
 
             </nav>
@@ -495,6 +497,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/psd/Maternal_Health_Risk
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-library">
@@ -524,6 +531,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1014, 7)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -532,11 +544,35 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age              int64
+SystolicBP       int64
+DiastolicBP      int64
+BS             float64
+BodyTemp       float64
+HeartRate        int64
+RiskLevel       object
+dtype: object
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># jumlah nilai-nilai yang hilang (NaN atau null) dalam setiap kolom DataFrame.</span>
 <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age            0
+SystolicBP     0
+DiastolicBP    0
+BS             0
+BodyTemp       0
+HeartRate      0
+RiskLevel      0
+dtype: int64
 </pre></div>
 </div>
 </div>
@@ -566,11 +602,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;BodyTemp&#39;, &#39;RiskLevel&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># berisi semua nilai yang ada dalam kolom &#39;BodyTemp&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;BodyTemp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 98. , 100. , 102. , 101. , 103. ,  98.4,  99. ,  98.6])
 </pre></div>
 </div>
 </div>
@@ -582,11 +628,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;high risk&#39;, &#39;low risk&#39;, &#39;mid risk&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data yang bersifat numerik</span>
 <span class="n">co_val</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Age&#39;, &#39;SystolicBP&#39;, &#39;DiastolicBP&#39;, &#39;BS&#39;, &#39;HeartRate&#39;]
 </pre></div>
 </div>
 </div>
@@ -598,11 +654,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([25, 35, 29, 30, 23, 32, 42, 19, 20, 48, 15, 50, 10, 40, 21, 18, 16,
+       22, 49, 28, 12, 60, 55, 45, 31, 17, 26, 54, 44, 33, 13, 34, 38, 39,
+       63, 14, 37, 51, 62, 43, 65, 66, 56, 70, 27, 36, 59, 24, 41, 46])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># berisi semua nilai yang ada dalam kolom &#39;SystolicBP&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SystolicBP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([130, 140,  90, 120,  85, 110,  70, 100,  75,  95,  76,  80, 115,
+       135, 160, 129,  83,  99,  78])
 </pre></div>
 </div>
 </div>
@@ -614,6 +683,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 80,  90,  70,  85,  60,  89,  75, 100,  50,  65,  95,  49,  63,
+        69,  76,  68])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -622,11 +697,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([15.  , 13.  ,  8.  ,  7.  ,  6.1 ,  7.01, 11.  ,  6.9 , 18.  ,
+        6.7 ,  7.5 ,  7.2 ,  7.1 ,  6.4 ,  9.  ,  6.  ,  7.7 , 12.  ,
+       16.  ,  7.8 ,  6.8 ,  7.9 , 17.  , 19.  , 10.  ,  6.3 ,  6.6 ,
+        6.5 ,  7.6 ])
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># berisi semua nilai yang ada dalam kolom &#39;HeartRate&#39;</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HeartRate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([86, 70, 80, 76, 78, 77, 88, 90, 66, 82, 60, 75, 67, 65, 68,  7])
 </pre></div>
 </div>
 </div>
@@ -644,6 +732,360 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>SystolicBP</th>
+      <th>DiastolicBP</th>
+      <th>BS</th>
+      <th>BodyTemp</th>
+      <th>HeartRate</th>
+      <th>RiskLevel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>130</td>
+      <td>80</td>
+      <td>15.0</td>
+      <td>98.0</td>
+      <td>86</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35</td>
+      <td>140</td>
+      <td>90</td>
+      <td>13.0</td>
+      <td>98.0</td>
+      <td>70</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>29</td>
+      <td>90</td>
+      <td>70</td>
+      <td>8.0</td>
+      <td>100.0</td>
+      <td>80</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30</td>
+      <td>140</td>
+      <td>85</td>
+      <td>7.0</td>
+      <td>98.0</td>
+      <td>70</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35</td>
+      <td>120</td>
+      <td>60</td>
+      <td>6.1</td>
+      <td>98.0</td>
+      <td>76</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1009</th>
+      <td>22</td>
+      <td>120</td>
+      <td>60</td>
+      <td>15.0</td>
+      <td>98.0</td>
+      <td>80</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1010</th>
+      <td>55</td>
+      <td>120</td>
+      <td>90</td>
+      <td>18.0</td>
+      <td>98.0</td>
+      <td>60</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1011</th>
+      <td>35</td>
+      <td>85</td>
+      <td>60</td>
+      <td>19.0</td>
+      <td>98.0</td>
+      <td>86</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1012</th>
+      <td>43</td>
+      <td>120</td>
+      <td>90</td>
+      <td>18.0</td>
+      <td>98.0</td>
+      <td>70</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1013</th>
+      <td>32</td>
+      <td>120</td>
+      <td>65</td>
+      <td>6.0</td>
+      <td>101.0</td>
+      <td>76</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>1014 rows × 7 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-b0a60f58-2d4e-4e82-b933-081088fd6de6">
+  <button class="colab-df-quickchart" onclick="quickchart('df-b0a60f58-2d4e-4e82-b933-081088fd6de6')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-b0a60f58-2d4e-4e82-b933-081088fd6de6 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,6 +1094,14 @@ document.write(`
 <span class="c1"># Kolom &#39;RiskLevel&#39; mungkin memiliki beberapa nilai seperti &#39;low risk&#39;, &#39;mid risk&#39;, &#39;high risk&#39;</span>
 <span class="c1"># Kode ini membantu untuk memahami distribusi nilai dalam kolom tersebut</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RiskLevel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    406
+1    336
+2    272
+Name: RiskLevel, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -675,6 +1125,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/40094d195de9da9b0ec279cc55d546a2a6501f5304d66ca14b2fee5d0876ba33.png" src="_images/40094d195de9da9b0ec279cc55d546a2a6501f5304d66ca14b2fee5d0876ba33.png" />
+</div>
 </div>
 <p>perbedaan antara kelas terbanyak (Low risk: 406 data) dan kelas terdikit (High risk: 272 data) tidak terlalu besar, meskipun ada perbedaan.Dengan mempertimbangkan perbedaan jumlah yang relatif kecil antara kelas-kelas dalam dataset tersebut, dapat dikatakan bahwa data tersebut cenderung lebih seimbang atau balence.</p>
 <div class="cell docutils container">
@@ -692,6 +1145,9 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c6671608183842d536339e6cdd2326fc2476508fc253e5ec950e7557f3261e75.png" src="_images/c6671608183842d536339e6cdd2326fc2476508fc253e5ec950e7557f3261e75.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -713,11 +1169,308 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>SystolicBP</th>
+      <th>DiastolicBP</th>
+      <th>BS</th>
+      <th>BodyTemp</th>
+      <th>HeartRate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25</td>
+      <td>130</td>
+      <td>80</td>
+      <td>15.0</td>
+      <td>98.0</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>35</td>
+      <td>140</td>
+      <td>90</td>
+      <td>13.0</td>
+      <td>98.0</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>29</td>
+      <td>90</td>
+      <td>70</td>
+      <td>8.0</td>
+      <td>100.0</td>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30</td>
+      <td>140</td>
+      <td>85</td>
+      <td>7.0</td>
+      <td>98.0</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35</td>
+      <td>120</td>
+      <td>60</td>
+      <td>6.1</td>
+      <td>98.0</td>
+      <td>76</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-49aba69c-3255-4613-8d07-d10b647b551d">
+  <button class="colab-df-quickchart" onclick="quickchart('df-49aba69c-3255-4613-8d07-d10b647b551d')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-49aba69c-3255-4613-8d07-d10b647b551d button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menampilkan lima baris pertama dari variabel y yang Memilih kolom &quot;RiskLevel&quot;</span>
 <span class="n">y</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2
+1    2
+2    2
+3    2
+4    0
+Name: RiskLevel, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -752,6 +1505,15 @@ document.write(`
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Training Shape y:&#39;</span><span class="p">,</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>       <span class="c1"># Menampilkan bentuk data latih untuk target (y)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Testing Shape y:&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>        <span class="c1"># Menampilkan bentuk data uji untuk target (y)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Shape x: (709, 6)
+Testing Shape x: (305, 6)
+*****___________*****___________*****
+Training Shape y: (1014, 6)
+Testing Shape y: (1014,)
 </pre></div>
 </div>
 </div>
@@ -823,6 +1585,48 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/javascript">
+    async function download(id, filename, size) {
+      if (!google.colab.kernel.accessAllowed) {
+        return;
+      }
+      const div = document.createElement('div');
+      const label = document.createElement('label');
+      label.textContent = `Downloading "${filename}": `;
+      div.appendChild(label);
+      const progress = document.createElement('progress');
+      progress.max = size;
+      div.appendChild(progress);
+      document.body.appendChild(div);
+
+      const buffers = [];
+      let downloaded = 0;
+
+      const channel = await google.colab.kernel.comms.open(id);
+      // Send a message to notify the kernel that we're ready.
+      channel.send({})
+
+      for await (const message of channel.messages) {
+        // Send a message to notify the kernel that we're ready.
+        channel.send({})
+        if (message.buffers) {
+          for (const buffer of message.buffers) {
+            buffers.push(buffer);
+            downloaded += buffer.byteLength;
+            progress.value = downloaded;
+          }
+        }
+      }
+      const blob = new Blob(buffers, {type: 'application/binary'});
+      const a = document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = filename;
+      div.appendChild(a);
+      a.click();
+      div.remove();
+    }
+  </script><script type="application/javascript">download("download_c481824f-a175-4c11-882d-8ab2701dd67d", "hasil_sudah_normalisasi_maternal.csv", 83580)</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -883,6 +1687,34 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.846262341325811
+Test accuracy: 0.7180327868852459
+[1 2 2 0 1 1 1 1 1 2 2 0 0 2 1 1 2 0 0 1 1 1 1 2 0 1 2 1 0 0 1 2 0 0 0 2 2
+ 1 0 2 0 1 2 2 0 1 2 1 0 0 0 0 0 0 1 1 2 0 0 0 0 1 1 1 1 2 1 2 1 1 2 0 0 1
+ 0 2 0 1 2 0 0 0 0 0 1 0 0 1 2 1 0 2 0 2 1 0 1 0 2 1 0 2 0 0 0 1 0 0 0 1 1
+ 1 0 2 1 0 0 2 0 2 1 0 0 1 2 2 1 0 1 0 0 0 1 1 0 0 2 1 0 1 2 0 2 2 0 0 2 1
+ 0 1 0 0 0 1 2 0 0 1 0 0 0 0 0 0 0 1 1 0 0 0 2 0 1 1 0 2 1 0 0 0 2 1 0 0 2
+ 0 2 0 0 0 1 0 1 1 0 0 1 2 0 0 1 1 2 2 1 0 1 2 1 1 2 1 0 0 0 2 1 0 0 0 2 2
+ 1 0 0 1 1 0 2 0 0 0 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 0 1 0 2 0 0 2 2
+ 0 0 1 0 0 1 2 1 0 2 1 0 2 0 1 2 0 0 0 0 0 0 2 0 2 1 0 2 0 1 1 0 1 0 0 0 2
+ 2 0 1 0 2 2 1 2 0]
+Confusion Matrix: [[96 18  3]
+ [39 65  8]
+ [10  8 58]]
+Accuracy: 71.80327868852459 %
+              precision    recall  f1-score   support
+
+           0       0.66      0.82      0.73       117
+           1       0.71      0.58      0.64       112
+           2       0.84      0.76      0.80        76
+
+    accuracy                           0.72       305
+   macro avg       0.74      0.72      0.72       305
+weighted avg       0.73      0.72      0.72       305
+</pre></div>
+</div>
+</div>
 </div>
 <ul class="simple">
 <li><p><strong>Decision Tree</strong></p></li>
@@ -908,6 +1740,34 @@ document.write(`
 
 <span class="c1"># Menampilkan precision, recall, f1-score, dan support</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">decision_tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>  <span class="c1"># Menampilkan laporan klasifikasi berdasarkan hasil prediksi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
+Test accuracy: 0.8
+[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 0 0 0 1 2 0 1 0 2 2
+ 0 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 1 0 1 0 1 1 0 0 2 1 2 1 2 2 2 1 1
+ 1 2 0 1 2 0 0 1 0 0 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
+ 1 0 2 1 0 0 2 1 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
+ 0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 1 0 0 2 0 1 0 1 2 1 1 0 0 2 1 0 2 2
+ 0 2 0 1 0 1 1 1 1 0 1 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
+ 1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
+ 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 1 2 0 1 1 2 1 0 0 0 2
+ 2 0 1 0 2 2 1 2 1]
+CM: [[88 25  4]
+ [16 87  9]
+ [ 1  6 69]]
+Accuracy: 80.0 %
+              precision    recall  f1-score   support
+
+           0       0.84      0.75      0.79       117
+           1       0.74      0.78      0.76       112
+           2       0.84      0.91      0.87        76
+
+    accuracy                           0.80       305
+   macro avg       0.81      0.81      0.81       305
+weighted avg       0.80      0.80      0.80       305
 </pre></div>
 </div>
 </div>
@@ -948,6 +1808,34 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.61212976022567
+Test accuracy: 0.5639344262295082
+[0 2 2 0 1 1 0 1 0 0 2 0 0 0 1 0 0 0 0 0 0 1 0 2 0 0 2 0 0 0 1 2 0 0 0 2 2
+ 0 0 2 2 1 2 0 0 1 2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 2 2 0 0 1 0 2 2 0
+ 0 2 0 2 2 0 0 0 0 0 0 0 0 1 2 0 1 1 0 0 0 0 1 0 2 0 0 1 0 0 0 0 0 1 0 0 1
+ 0 0 2 2 1 0 2 0 2 1 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 2 0 0 0 2 1 0 2 0 0 2 0
+ 0 0 0 0 0 0 1 0 0 0 0 2 0 0 0 0 0 0 2 0 0 0 2 0 0 0 0 2 1 0 0 0 1 0 0 2 2
+ 0 2 0 0 0 0 0 1 0 0 0 0 2 0 0 0 0 0 1 0 0 0 2 0 0 2 0 0 0 0 1 0 0 0 0 2 2
+ 0 0 0 0 0 0 2 0 0 0 1 0 2 0 0 0 1 0 0 0 0 0 1 2 0 0 0 0 0 2 0 0 0 0 0 2 2
+ 2 0 0 0 0 0 2 0 0 1 0 0 1 0 0 2 0 0 0 2 0 0 0 0 2 1 0 2 0 2 0 1 0 0 0 0 2
+ 2 0 0 0 2 0 0 2 0]
+Confusion Matrix: [[109   5   3]
+ [ 85  17  10]
+ [ 19  11  46]]
+Accuracy: 56.393442622950815 %
+              precision    recall  f1-score   support
+
+           0       0.51      0.93      0.66       117
+           1       0.52      0.15      0.23       112
+           2       0.78      0.61      0.68        76
+
+    accuracy                           0.56       305
+   macro avg       0.60      0.56      0.53       305
+weighted avg       0.58      0.56      0.51       305
+</pre></div>
+</div>
+</div>
 </div>
 <ul class="simple">
 <li><p><strong>LogisticRegression</strong></p></li>
@@ -969,6 +1857,21 @@ document.write(`
 
 <span class="c1"># Mencetak nilai Akurasi (Accuracy Score) dari prediksi model terhadap data y_test</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy Score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy Score: 0.6327868852459017
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
 </div>
@@ -1001,6 +1904,31 @@ document.write(`
 
 <span class="c1"># Menampilkan nilai k terbaik dan skor akurasi terbaik yang telah ditemukan</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k Terbaik: </span><span class="si">{</span><span class="n">k_terbaik</span><span class="si">}</span><span class="s2"> dengan Skor Akurasi: </span><span class="si">{</span><span class="n">akurasi_terbaik</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k = 1, Skor Akurasi: 0.7836065573770492
+k = 2, Skor Akurasi: 0.6852459016393443
+k = 3, Skor Akurasi: 0.6688524590163935
+k = 4, Skor Akurasi: 0.6262295081967213
+k = 5, Skor Akurasi: 0.6
+k = 6, Skor Akurasi: 0.6
+k = 7, Skor Akurasi: 0.6295081967213115
+k = 8, Skor Akurasi: 0.6065573770491803
+k = 9, Skor Akurasi: 0.580327868852459
+k = 10, Skor Akurasi: 0.6098360655737705
+k = 11, Skor Akurasi: 0.6098360655737705
+k = 12, Skor Akurasi: 0.6163934426229508
+k = 13, Skor Akurasi: 0.6131147540983607
+k = 14, Skor Akurasi: 0.6032786885245902
+k = 15, Skor Akurasi: 0.5967213114754099
+k = 16, Skor Akurasi: 0.6065573770491803
+k = 17, Skor Akurasi: 0.6098360655737705
+k = 18, Skor Akurasi: 0.6098360655737705
+k = 19, Skor Akurasi: 0.5967213114754099
+k = 20, Skor Akurasi: 0.5967213114754099
+k Terbaik: 1 dengan Skor Akurasi: 0.7836065573770492
 </pre></div>
 </div>
 </div>
@@ -1038,6 +1966,34 @@ document.write(`
 
 <span class="c1"># Menampilkan laporan klasifikasi yang berisi precision, recall, dan f1-score</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
+Test accuracy: 0.8032786885245902
+[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 1 0 0 1 2 0 1 0 2 2
+ 1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
+ 1 2 0 1 2 0 0 1 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
+ 1 0 2 1 0 0 2 0 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
+ 0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 1 0 0 2 0 1 0 1 2 1 0 0 0 2 1 0 2 2
+ 0 2 0 0 0 1 1 1 1 0 0 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
+ 1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
+ 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
+ 2 0 1 0 2 2 1 2 1]
+Confusion Matrix: [[89 24  4]
+ [16 87  9]
+ [ 2  5 69]]
+Accuracy: 80.32786885245902 %
+              precision    recall  f1-score   support
+
+           0       0.83      0.76      0.79       117
+           1       0.75      0.78      0.76       112
+           2       0.84      0.91      0.87        76
+
+    accuracy                           0.80       305
+   macro avg       0.81      0.82      0.81       305
+weighted avg       0.80      0.80      0.80       305
 </pre></div>
 </div>
 </div>
@@ -1156,19 +2112,9 @@ random_state Terbaik: 4 dengan Skor Akurasi: 0.8098360655737705
 </div>
 </div>
 </div>
-<p>Model dengan akurasi terbaik adalah Random Forest</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan model dengan file pickle</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-<span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/psd/Maternal_Health_Risk/model_randomForest_ini.pkl&#39;</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">random_forest</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="link-aplikasi-model-ada-di-www">
+<h1><strong>Link Aplikasi Model ada di www.</strong><a class="headerlink" href="#link-aplikasi-model-ada-di-www" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1233,6 +2179,7 @@ random_state Terbaik: 4 dengan Skor Akurasi: 0.8098360655737705
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-preprocessing-dan-model"><strong>3. Penjelasan Preprocessing dan Model</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">- - -  <strong>PREPROCESSING</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model">- - -  <strong>MODEL</strong> - - -</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-aplikasi-model-ada-di-www"><strong>Link Aplikasi Model ada di www.</strong></a></li>
 </ul>
 
   </nav></div>

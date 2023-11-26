@@ -148,14 +148,8 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    
-    
-      
-    
-    
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
   
+    <p class="title logo__title">My sample book</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -170,6 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong></a></li>
+
 
 
 
@@ -372,6 +367,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-detail-terkait-fitur-yang-ada"><strong>Penjelasan Detail Terkait fitur yang Ada:</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-google-drive">- - -  <strong>Connect To Google Drive</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">- - -  <strong>IMPORT LIBRARY</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">- - -  <strong>EKSPLORASI DATA</strong> - - -</a></li>
@@ -399,8 +395,42 @@ document.write(`
 <h1><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong><a class="headerlink" href="#data-maternal-health-risk-risiko-kesehatan-ibu-hamil" title="Permalink to this heading">#</a></h1>
 <p>#<strong>1. Deskripsi Dataset</strong></p>
 <p>Data diambil dari <a class="reference external" href="https://archive.ics.uci.edu/dataset/863/maternal+health+risk">https://archive.ics.uci.edu/dataset/863/maternal+health+risk</a></p>
-<p>Deskripsi data : ancaman terhadap kesehatan ibu hamil atau calon ibu yang sedang mengandung. Hal ini sering digunakan dalam konteks kesehatan ibu hamil untuk memahami dan mengatasi risiko-risiko yang dapat memengaruhi kesehatan ibu dan perkembangan janin.</p>
+<p>Tujuan Analisis Data : memprediksi resiko kesehatan ibu hamil</p>
+<ul class="simple">
+<li><p>Mengklasifikasikan individu berdasarkan karakteristik dan fitur-fitur tertentu dapat membantu dalam memprediksi tingkat risiko kesehatan ibu. Ini memungkinkan penyedia layanan kesehatan untuk lebih awal mengidentifikasi calon ibu yang mungkin menghadapi risiko kesehatan tertentu selama kehamilan.</p></li>
+<li><p>Dengan mengklasifikasikan calon ibu berdasarkan risiko, perawatan dan pemantauan yang lebih intensif dapat ditargetkan pada mereka yang memiliki risiko tinggi (high). Sebaliknya, mereka dengan risiko sedang (mid) dapat menerima perawatan yang cukup, mereka dengan risiko rendah (low) dapat menerima perawatan yang lebih sederhana.</p></li>
+</ul>
+<p>Deskripsi data : ancaman terhadap kesehatan ibu hamil atau calon ibu yang sedang mengandung. Hal ini sering digunakan dalam konteks kesehatan ibu hamil untuk memahami dan mengatasi risiko-risiko yang dapat memengaruhi kesehatan ibu dan perkembangan janin. jumlah data resiko kesehatan ibu hamil ada 1014. untuk mendiagnosa resiko seorang ibu hamil diperlukan beberapa informasi mengenai kondisi ibu hamil.</p>
+<p>Ada 6 Informasi kondisi ibu hamil yang dibutuhkan untuk mendiagnosa risiko seorang ibu hamil meliputi:</p>
+<ul class="simple">
+<li><p>Age : Usia dalam tahun ketika seorang wanita sedang hamil.</p></li>
+<li><p>cara mendapatkan data :</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Fitur</p></th>
+<th class="head"><p>Cara mendapatkan fitur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Age</p></td>
+<td><p>Instusi kesehatan</p></td>
+</tr>
+<tr class="row-odd"><td><p>John</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-even"><td><p>Linda</p></td>
+<td><p>25</p></td>
+</tr>
+</tbody>
+</table>
 <ul>
+<li><p>SystolicBP : Nilai atas Tekanan Darah dalam mmHg (milimeter raksa) [cara mendapatkan data ini dengan menggunakan alat apa, bidan]</p></li>
+<li><p>DiastolicBP : Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
+<li><p>BS :	tingkat glukosa darah atau gula darah dalam bentuk konsentrasi molar, mmol/L.</p></li>
+<li><p>BodyTemp : Suhu Tubuh dalam Fahrenheit</p></li>
+<li><p>HeartRate	: Tingkat detak jantung istirahat normal dalam denyut per menit.</p></li>
+<li><p>RiskLevel : Tingkat Intensitas Risiko yang Diprediksi selama kehamilan</p></li>
 <li><p>Jumlah data terdapat 1014</p></li>
 <li><p>Jumlah fitur ada 7</p>
 <p>tipe data pada fitur :</p>
@@ -418,23 +448,36 @@ document.write(`
 <li><p>Terdapat 3 kelas di risk Level : high risk, mid risk, low risk</p></li>
 <li><p>Jumlah pada setiap kelas</p>
 <ol class="arabic simple">
-<li><p>High risk : 272</p></li>
-<li><p>Mid risk : 336</p></li>
-<li><p>Low risk : 406</p></li>
+<li><p>High risk (resiko tinggi) : 272</p></li>
+<li><p>Mid risk (resiko sedang) : 336</p></li>
+<li><p>Low risk (resiko rendah): 406</p></li>
 </ol>
 </li>
-<li><p>Dalam konteks data tersebut, perbedaan antara kelas terbanyak (Low risk: 406 data) dan kelas terdikit (High risk: 272 data) tidak terlalu besar, meskipun ada perbedaan.Dengan mempertimbangkan perbedaan jumlah yang relatif kecil antara kelas-kelas dalam dataset yangtersebut, dapat dikatakan bahwa data tersebut cenderung lebih seimbang atau balence.</p></li>
+<li><p>Dalam konteks data tersebut, perbedaan antara kelas terbanyak (Low risk: 406 data) dan kelas yang meiliki jumlah sedikit (High risk: 272 data) tidak terlalu besar, meskipun ada perbedaan.Dengan mempertimbangkan perbedaan jumlah yang relatif kecil antara kelas-kelas dalam dataset yangtersebut, dapat dikatakan bahwa data tersebut cenderung lebih seimbang atau balence.</p></li>
 </ul>
-<p>Tujuan Klasifikasi Data :</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-detail-terkait-fitur-yang-ada">
+<h1><strong>Penjelasan Detail Terkait fitur yang Ada:</strong><a class="headerlink" href="#penjelasan-detail-terkait-fitur-yang-ada" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Age</strong>: Usia dalam tahun ketika seorang wanita sedang hamil.</p></li>
+</ol>
+<p>Secara umum, kehamilan dikategorikan berisiko tinggi apabila ibu hamil berusia di atas 35 tahun. Kondisi ini dikenal dengan istilah kehamilan geriatri (hamil usia tua). Pasalnya, kehamilan geriatri dapat meningkatkan risiko terjadinya preeklamsia, persalinan macet, kelahiran prematur, hingga keguguran.</p>
+<p>Selain itu, wanita yang hamil di bawah usia 17 tahun juga lebih berisiko mengalami komplikasi kehamilan, seperti maternal anemia, infeksi pada kehamilan, tekanan darah tinggi, dan lain sebagainya. Hal ini disebabkan karena pada usia yang masih muda tersebut, sistem reproduksi masih belum matang sepenuhnya sehingga belum mampu untuk mendukung kehamilan.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>SystolicBP</strong> : Nilai atas Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
+</ol>
+<p>Systolic Blood Pressure atau tekanan darah sistolik diukur saat jantung berkontraksi dan memompa darah ke dalam arteri. Nilai ini mencerminkan tekanan darah pada saat puncak dalam siklus detak jantung.
+Pengukuran tekanan darah biasanya dilakukan dalam bentuk dua angka, misalnya, dalam format 120/80 mmHg. Angka pertama (120 dalam contoh ini) menunjukkan tekanan sistolik, sedangkan angka kedua (80) menunjukkan tekanan diastolik.</p>
+<p>Pada ibu hamil, perubahan tekanan darah bisa menjadi salah satu faktor risiko yang perlu dipantau secara teratur. Biasanya, selama kehamilan, terjadi peningkatan alami dalam tekanan darah, terutama pada trimester kedua. Namun, jika tekanan darah meningkat secara signifikan di luar batas normal, ini bisa menjadi tanda-tanda masalah kesehatan seperti pre-eclampsia atau hipertensi pada kehamilan, yang dapat berpotensi membahayakan ibu hamil dan janin.</p>
+<p>Pengukuran tekanan darah yang konsisten tinggi atau di atas ambang batas tertentu (yang ditentukan oleh standar medis) selama kehamilan bisa menjadi indikasi adanya komplikasi atau risiko kesehatan yang perlu diwaspadai. Oleh karena itu, pemantauan dan pengelolaan tekanan darah ibu hamil sangat penting untuk mencegah komplikasi yang berpotensi membahayakan kesehatan ibu dan janin.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>DiastolicBP</strong> : Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
+</ol>
+<p>Diastolic blood pressure (tekanan darah diastolik) adalah nilai tekanan darah yang diukur ketika jantung sedang beristirahat atau mengisi kembali dengan darah di antara kontraksi-kontraksi (sistolik). Diastolic blood pressure (Diastolic BP) merupakan nilai tekanan darah pada fase relaksasi jantung, di mana pembuluh darah mengisi kembali dengan darah setelah pompaan darah oleh jantung.</p>
+<p>Diastolic BP diukur dalam milimeter raksa (mmHg) dan merepresentasikan tekanan pada dinding pembuluh darah ketika jantung sedang beristirahat. Nilai normal diastolic blood pressure biasanya dianggap sekitar 80 mmHg atau lebih rendah. Namun, dalam konteks kehamilan, rentang normal tekanan darah dapat berbeda dan tergantung pada fase kehamilan.</p>
+<p>Selama kehamilan, perubahan hormonal dan fisik dapat memengaruhi tekanan darah ibu hamil. Biasanya, tekanan darah sistolik (nilai atas) cenderung menurun sedikit pada pertengahan kehamilan dan kembali normal atau sedikit meningkat menjelang persalinan, sementara tekanan darah diastolik (nilai bawah) cenderung menurun secara bertahap hingga mencapai titik terendah pada pertengahan kehamilan.</p>
+<p>Tingkat Diastolic BP yang tinggi pada ibu hamil dapat menandakan hipertensi atau tekanan darah tinggi, yang bisa menjadi risiko kesehatan serius baik bagi ibu maupun janin. Kondisi ini memerlukan pemantauan dan pengelolaan yang tepat oleh tenaga medis untuk mencegah komplikasi serius selama kehamilan.</p>
 <ul class="simple">
-<li><p>Mengklasifikasikan individu berdasarkan karakteristik dan fitur-fitur tertentu dapat membantu dalam memprediksi tingkat risiko kesehatan ibu. Ini memungkinkan penyedia layanan kesehatan untuk lebih awal mengidentifikasi calon ibu yang mungkin menghadapi risiko kesehatan tertentu selama kehamilan.</p></li>
-<li><p>Dengan mengklasifikasikan calon ibu berdasarkan risiko, perawatan dan pemantauan yang lebih intensif dapat ditargetkan pada mereka yang memiliki risiko tinggi (high). Sebaliknya, mereka dengan risiko sedang (mid) dapat menerima perawatan yang cukup, mereka dengan risiko rendah (low) dapat menerima perawatan yang lebih sederhana.</p></li>
-</ul>
-<p>Berikut penjelasan Fitur yang ada di dalam Dataset :</p>
-<ul class="simple">
-<li><p>Age : Usia dalam tahun ketika seorang wanita sedang hamil.</p></li>
-<li><p>SystolicBP : Nilai atas Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
-<li><p>DiastolicBP : Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
 <li><p>BS :	tingkat glukosa darah atau gula darah dalam bentuk konsentrasi molar, mmol/L.</p></li>
 <li><p>BodyTemp : Suhu Tubuh dalam Fahrenheit</p></li>
 <li><p>HeartRate	: Tingkat detak jantung istirahat normal dalam denyut per menit.</p></li>
@@ -1478,7 +1521,7 @@ Name: RiskLevel, dtype: int64
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="split-data">
 <h1>- - -  <strong>SPLIT DATA</strong> - - -<a class="headerlink" href="#split-data" title="Permalink to this heading">#</a></h1>
-<p>Funsinya untuk membagi dataset menjadi data pelatihan dan pengujian.</p>
+<p>Fungsinya untuk membagi dataset menjadi data pelatihan dan pengujian.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split Dataset</span>
@@ -1630,7 +1673,7 @@ Testing Shape y: (1014,)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan model dengan file pickle</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menyimpan preprocessing</span>
 <span class="c1"># Mengimpor modul pickle yang memungkinkan penyimpanan objek Python ke dalam file</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 
@@ -2172,6 +2215,7 @@ random_state Terbaik: 4 dengan Skor Akurasi: 0.8098360655737705
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-detail-terkait-fitur-yang-ada"><strong>Penjelasan Detail Terkait fitur yang Ada:</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-google-drive">- - -  <strong>Connect To Google Drive</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">- - -  <strong>IMPORT LIBRARY</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">- - -  <strong>EKSPLORASI DATA</strong> - - -</a></li>

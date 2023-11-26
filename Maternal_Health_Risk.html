@@ -172,7 +172,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-
 </ul>
 
     </div>
@@ -368,14 +367,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-detail-terkait-fitur-yang-ada"><strong>Penjelasan Detail Terkait fitur yang Ada:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-google-drive">- - -  <strong>Connect To Google Drive</strong> - - -</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">- - -  <strong>IMPORT LIBRARY</strong> - - -</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library"><strong>IMPORT LIBRARY</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">- - -  <strong>EKSPLORASI DATA</strong> - - -</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">- - -  <strong>SPLIT DATA</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-preprocessing-dan-model"><strong>3. Penjelasan Preprocessing dan Model</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">- - -  <strong>PREPROCESSING</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model">- - -  <strong>MODEL</strong> - - -</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-aplikasi-model-ada-di-www"><strong>Link Aplikasi Model ada di www.</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data"><strong>SPLIT DATA</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-aplikasi-deployment-menggunakan-streamlit-ada-di-https-2edwumwvadmlng4pqmh4fs-streamlit-app"><strong>Link Aplikasi deployment menggunakan streamlit ada di https://2edwumwvadmlng4pqmh4fs.streamlit.app/</strong></a></li>
 </ul>
 
             </nav>
@@ -395,53 +393,77 @@ document.write(`
 <h1><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong><a class="headerlink" href="#data-maternal-health-risk-risiko-kesehatan-ibu-hamil" title="Permalink to this heading">#</a></h1>
 <p>#<strong>1. Deskripsi Dataset</strong></p>
 <p>Data diambil dari <a class="reference external" href="https://archive.ics.uci.edu/dataset/863/maternal+health+risk">https://archive.ics.uci.edu/dataset/863/maternal+health+risk</a></p>
-<p>Tujuan Analisis Data : memprediksi resiko kesehatan ibu hamil</p>
+<p>Tujuan Analisis Data : Memprediksi tingkat resiko kesehatan ibu hamil</p>
 <ul class="simple">
-<li><p>Mengklasifikasikan individu berdasarkan karakteristik dan fitur-fitur tertentu dapat membantu dalam memprediksi tingkat risiko kesehatan ibu. Ini memungkinkan penyedia layanan kesehatan untuk lebih awal mengidentifikasi calon ibu yang mungkin menghadapi risiko kesehatan tertentu selama kehamilan.</p></li>
 <li><p>Dengan mengklasifikasikan calon ibu berdasarkan risiko, perawatan dan pemantauan yang lebih intensif dapat ditargetkan pada mereka yang memiliki risiko tinggi (high). Sebaliknya, mereka dengan risiko sedang (mid) dapat menerima perawatan yang cukup, mereka dengan risiko rendah (low) dapat menerima perawatan yang lebih sederhana.</p></li>
 </ul>
 <p>Deskripsi data : ancaman terhadap kesehatan ibu hamil atau calon ibu yang sedang mengandung. Hal ini sering digunakan dalam konteks kesehatan ibu hamil untuk memahami dan mengatasi risiko-risiko yang dapat memengaruhi kesehatan ibu dan perkembangan janin. jumlah data resiko kesehatan ibu hamil ada 1014. untuk mendiagnosa resiko seorang ibu hamil diperlukan beberapa informasi mengenai kondisi ibu hamil.</p>
-<p>Ada 6 Informasi kondisi ibu hamil yang dibutuhkan untuk mendiagnosa risiko seorang ibu hamil meliputi:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-detail-terkait-fitur-yang-ada">
+<h1><strong>Penjelasan Detail Terkait fitur yang Ada:</strong><a class="headerlink" href="#penjelasan-detail-terkait-fitur-yang-ada" title="Permalink to this heading">#</a></h1>
+<p>Ada 7 Informasi kondisi ibu hamil yang dibutuhkan untuk mendiagnosa risiko seorang ibu hamil meliputi:</p>
+<ol class="arabic simple">
+<li><p><strong>Age</strong> : Usia dalam tahun ketika seorang wanita sedang hamil.</p></li>
+</ol>
 <ul class="simple">
-<li><p>Age : Usia dalam tahun ketika seorang wanita sedang hamil.</p></li>
-<li><p>cara mendapatkan data :</p></li>
+<li><p>cara mendapatkan data “Age” :
+seorang wanita sedang hamil saat berkonsultasi dengan dokter, dokter biasanya akan memperoleh informasi tersebut berdasarkan tanggal lahir usia wanita tersebut.</p></li>
 </ul>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Fitur</p></th>
-<th class="head"><p>Cara mendapatkan fitur</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Age</p></td>
-<td><p>Instusi kesehatan</p></td>
-</tr>
-<tr class="row-odd"><td><p>John</p></td>
-<td><p>32</p></td>
-</tr>
-<tr class="row-even"><td><p>Linda</p></td>
-<td><p>25</p></td>
-</tr>
-</tbody>
-</table>
+<ol class="arabic simple" start="2">
+<li><p><strong>SystolicBP</strong>: Nilai atas Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
+</ol>
+<ul class="simple">
+<li><p>cara mendapatkan data “SytolicBP” :</p></li>
+</ul>
+<p>Alat yang digunakan untuk mengukur tekanan darah, termasuk Systolic Blood Pressure (SBP) yang merupakan nilai atas dari tekanan darah, disebut dengan nama “sphygmomanometer” atau yang sering disebut juga dengan “blood pressure monitor”. Dokter atau bidan (tenaga medis) akan memeriksa dan mencatat nilai tekanan darah saat melakukan pemeriksaan tekanan darah.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>DiastolicBP</strong> : Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
+</ol>
+<ul class="simple">
+<li><p>cara mendapatkan data “DiastolicBP”:</p></li>
+</ul>
+<p>Alat yang digunakan untuk mengukur tekanan darah, termasuk Systolic Blood Pressure (SBP) yang merupakan nilai bawah dari tekanan darah, disebut dengan nama “sphygmomanometer” atau yang sering disebut juga dengan “blood pressure monitor”. Dokter atau bidan (tenaga medis) akan memeriksa dan mencatat nilai tekanan darah saat melakukan pemeriksaan tekanan darah.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>BS (Blood Sugar)</strong> :	tingkat glukosa darah atau gula darah dalam bentuk konsentrasi molar, mmol/L.</p></li>
+</ol>
+<ul class="simple">
+<li><p>cara mendapatkan data “BS (Blood Sugar)”:
+Tes Glukosa Darah Pada Laboratorium, Dokter atau bidan (tenaga medis) dapat melakukan tes glukosa darah dengan mengambil sampel darah dari ibu hamil. Hasilnya akan menunjukkan kadar glukosa dalam darah dalam satuan mmol/L.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p><strong>BodyTemp</strong> : Suhu Tubuh dalam Fahrenheit</p></li>
+</ol>
+<ul class="simple">
+<li><p>cara mendapatkan data “BodyTemp”:</p></li>
+</ul>
+<p>dokter atau petugas kesehatan akan melakukan pengukuran suhu tubuh menggunakan alat termometer medis. Mereka dapat melakukan pengukuran suhu tubuh secara langsung di klinik. Metode pengukuran yang umum dilakukan adalah dengan menempatkan termometer di bawah lidah, di ketiak, atau melalui pengukuran inframerah tanpa kontak di dahi.</p>
+<ol class="arabic simple" start="6">
+<li><p><strong>HeartRate</strong>	: Tingkat detak jantung istirahat normal dalam denyut per menit.</p></li>
+</ol>
+<ul class="simple">
+<li><p>cara mendapatkan data “HeartRate”:</p></li>
+</ul>
+<p>a. Stetoskop: Dokter atau bidan (tenaga medis) dapat menggunakan alat stetoskop untuk mendengarkan detak jantung ibu hamil. Mereka akan menempatkan stetoskop di tempat yang tepat pada jantung untuk mendengarkan detak jantung dan  mengevaluasi tingkat detak jantung ibu.</p>
+<p>b. Alat Pengukur Detak Jantung Elektronik:  beberapa fasilitas klinik kesehatan memiliki alat pengukur detak jantung elektronik yang dapat mengukur denyut nadi secara langsung pada ibu hamil. Alat ini bisa digunakan untuk mengukur detak jantung istirahat ibu. Dokter atau bidan (tenaga medis) akan membantu untuk menggunakan alat ini dan mencatat tingkat detak jatung istirahat ibu hamil.</p>
+<ol class="arabic simple" start="7">
+<li><p><strong>RiskLevel</strong>: Tingkat Intensitas Risiko yang Diprediksi selama kehamilan</p></li>
+</ol>
+<ul class="simple">
+<li><p>cara mendapatkan data “RiskLevel”:</p></li>
+</ul>
+<p>Dokter atau bidan (tenaga medis) meninjau kondisi ibu hamil dari Age (Umur), SystolicBP (Nilai atas Tekanan Darah dalam mmHg (milimeter raksa)), DiastolicBP (Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)), BS (Blood Sugar : Tingkat glukosa darah), BodyTemp (Suhu Tubuh dalam Fahrenheit), HeartRate (Tingkat detak jantung istirahat normal dalam denyut per menit) yang mempengaruhi kehamilan saat ini dan melakukan prediksi tingkat risiko ibu hamil tersebut.</p>
 <ul>
-<li><p>SystolicBP : Nilai atas Tekanan Darah dalam mmHg (milimeter raksa) [cara mendapatkan data ini dengan menggunakan alat apa, bidan]</p></li>
-<li><p>DiastolicBP : Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
-<li><p>BS :	tingkat glukosa darah atau gula darah dalam bentuk konsentrasi molar, mmol/L.</p></li>
-<li><p>BodyTemp : Suhu Tubuh dalam Fahrenheit</p></li>
-<li><p>HeartRate	: Tingkat detak jantung istirahat normal dalam denyut per menit.</p></li>
-<li><p>RiskLevel : Tingkat Intensitas Risiko yang Diprediksi selama kehamilan</p></li>
 <li><p>Jumlah data terdapat 1014</p></li>
 <li><p>Jumlah fitur ada 7</p>
 <p>tipe data pada fitur :</p>
 <ol class="arabic simple">
-<li><p>Age          : integer</p></li>
-<li><p>SystolicBP      : integer</p></li>
-<li><p>DiastolicBP    : integer</p></li>
-<li><p>BS            : float</p></li>
-<li><p>BodyTemp      : float</p></li>
-<li><p>HeartRate        : integer</p></li>
-<li><p>RiskLevel   : categorial</p></li>
+<li><p>Age          : integer (bilangan bulat)</p></li>
+<li><p>SystolicBP      : integer (bilangan bulat)</p></li>
+<li><p>DiastolicBP    : integer (bilangan bulat)</p></li>
+<li><p>BS            : float (bilangan desimal)</p></li>
+<li><p>BodyTemp      : float (bilangan desimal)</p></li>
+<li><p>HeartRate        : integer (bilangan bulat)</p></li>
+<li><p>RiskLevel   : categorial (data kategori yang menggambarkan tingkat risiko yang diprediksi dalam kategori tertentu.)</p></li>
 </ol>
 </li>
 <li><p>Tidak ada missing value, tidak ada nilai yang hilang (NaN) dalam setiap kolom. Semua kolom memiliki nilai yang lengkap dan tidak ada yang perlu diproses lebih lanjut terkait dengan data yang hilang</p></li>
@@ -455,41 +477,10 @@ document.write(`
 </li>
 <li><p>Dalam konteks data tersebut, perbedaan antara kelas terbanyak (Low risk: 406 data) dan kelas yang meiliki jumlah sedikit (High risk: 272 data) tidak terlalu besar, meskipun ada perbedaan.Dengan mempertimbangkan perbedaan jumlah yang relatif kecil antara kelas-kelas dalam dataset yangtersebut, dapat dikatakan bahwa data tersebut cenderung lebih seimbang atau balence.</p></li>
 </ul>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-detail-terkait-fitur-yang-ada">
-<h1><strong>Penjelasan Detail Terkait fitur yang Ada:</strong><a class="headerlink" href="#penjelasan-detail-terkait-fitur-yang-ada" title="Permalink to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p><strong>Age</strong>: Usia dalam tahun ketika seorang wanita sedang hamil.</p></li>
-</ol>
-<p>Secara umum, kehamilan dikategorikan berisiko tinggi apabila ibu hamil berusia di atas 35 tahun. Kondisi ini dikenal dengan istilah kehamilan geriatri (hamil usia tua). Pasalnya, kehamilan geriatri dapat meningkatkan risiko terjadinya preeklamsia, persalinan macet, kelahiran prematur, hingga keguguran.</p>
-<p>Selain itu, wanita yang hamil di bawah usia 17 tahun juga lebih berisiko mengalami komplikasi kehamilan, seperti maternal anemia, infeksi pada kehamilan, tekanan darah tinggi, dan lain sebagainya. Hal ini disebabkan karena pada usia yang masih muda tersebut, sistem reproduksi masih belum matang sepenuhnya sehingga belum mampu untuk mendukung kehamilan.</p>
-<ol class="arabic simple" start="2">
-<li><p><strong>SystolicBP</strong> : Nilai atas Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
-</ol>
-<p>Systolic Blood Pressure atau tekanan darah sistolik diukur saat jantung berkontraksi dan memompa darah ke dalam arteri. Nilai ini mencerminkan tekanan darah pada saat puncak dalam siklus detak jantung.
-Pengukuran tekanan darah biasanya dilakukan dalam bentuk dua angka, misalnya, dalam format 120/80 mmHg. Angka pertama (120 dalam contoh ini) menunjukkan tekanan sistolik, sedangkan angka kedua (80) menunjukkan tekanan diastolik.</p>
-<p>Pada ibu hamil, perubahan tekanan darah bisa menjadi salah satu faktor risiko yang perlu dipantau secara teratur. Biasanya, selama kehamilan, terjadi peningkatan alami dalam tekanan darah, terutama pada trimester kedua. Namun, jika tekanan darah meningkat secara signifikan di luar batas normal, ini bisa menjadi tanda-tanda masalah kesehatan seperti pre-eclampsia atau hipertensi pada kehamilan, yang dapat berpotensi membahayakan ibu hamil dan janin.</p>
-<p>Pengukuran tekanan darah yang konsisten tinggi atau di atas ambang batas tertentu (yang ditentukan oleh standar medis) selama kehamilan bisa menjadi indikasi adanya komplikasi atau risiko kesehatan yang perlu diwaspadai. Oleh karena itu, pemantauan dan pengelolaan tekanan darah ibu hamil sangat penting untuk mencegah komplikasi yang berpotensi membahayakan kesehatan ibu dan janin.</p>
-<ol class="arabic simple" start="3">
-<li><p><strong>DiastolicBP</strong> : Nilai bawah Tekanan Darah dalam mmHg (milimeter raksa)</p></li>
-</ol>
-<p>Diastolic blood pressure (tekanan darah diastolik) adalah nilai tekanan darah yang diukur ketika jantung sedang beristirahat atau mengisi kembali dengan darah di antara kontraksi-kontraksi (sistolik). Diastolic blood pressure (Diastolic BP) merupakan nilai tekanan darah pada fase relaksasi jantung, di mana pembuluh darah mengisi kembali dengan darah setelah pompaan darah oleh jantung.</p>
-<p>Diastolic BP diukur dalam milimeter raksa (mmHg) dan merepresentasikan tekanan pada dinding pembuluh darah ketika jantung sedang beristirahat. Nilai normal diastolic blood pressure biasanya dianggap sekitar 80 mmHg atau lebih rendah. Namun, dalam konteks kehamilan, rentang normal tekanan darah dapat berbeda dan tergantung pada fase kehamilan.</p>
-<p>Selama kehamilan, perubahan hormonal dan fisik dapat memengaruhi tekanan darah ibu hamil. Biasanya, tekanan darah sistolik (nilai atas) cenderung menurun sedikit pada pertengahan kehamilan dan kembali normal atau sedikit meningkat menjelang persalinan, sementara tekanan darah diastolik (nilai bawah) cenderung menurun secara bertahap hingga mencapai titik terendah pada pertengahan kehamilan.</p>
-<p>Tingkat Diastolic BP yang tinggi pada ibu hamil dapat menandakan hipertensi atau tekanan darah tinggi, yang bisa menjadi risiko kesehatan serius baik bagi ibu maupun janin. Kondisi ini memerlukan pemantauan dan pengelolaan yang tepat oleh tenaga medis untuk mencegah komplikasi serius selama kehamilan.</p>
-<ul class="simple">
-<li><p>BS :	tingkat glukosa darah atau gula darah dalam bentuk konsentrasi molar, mmol/L.</p></li>
-<li><p>BodyTemp : Suhu Tubuh dalam Fahrenheit</p></li>
-<li><p>HeartRate	: Tingkat detak jantung istirahat normal dalam denyut per menit.</p></li>
-<li><p>RiskLevel : Tingkat Intensitas Risiko yang Diprediksi selama kehamilan</p></li>
-</ul>
-<p>#<strong>2. Penjelasan Setiap Program itu ada di dalam Code</strong></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="connect-to-google-drive">
-<h1>- - -  <strong>Connect To Google Drive</strong> - - -<a class="headerlink" href="#connect-to-google-drive" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Connect To Google Drive</span>
+<span class="c1"># untuk menghubungkan Google Colab dengan Google Drive</span>
 <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
 </pre></div>
@@ -498,10 +489,10 @@ Pengukuran tekanan darah biasanya dilakukan dalam bentuk dua angka, misalnya, da
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-7e4c25d9f53c&gt;</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Connect To Google Drive</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+<span class="nn">&lt;ipython-input-1-e9e07125736b&gt;</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># untuk menghubungkan Google Colab dengan Google Drive</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
 <span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -548,13 +539,14 @@ Pengukuran tekanan darah biasanya dilakukan dalam bentuk dua angka, misalnya, da
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="import-library">
-<h1>- - -  <strong>IMPORT LIBRARY</strong> - - -<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h1>
+<h1><strong>IMPORT LIBRARY</strong><a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy_score</span>
@@ -563,39 +555,23 @@ Pengukuran tekanan darah biasanya dilakukan dalam bentuk dua angka, misalnya, da
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data">
-<h1>- - -  <strong>EKSPLORASI DATA</strong> - - -<a class="headerlink" href="#eksplorasi-data" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#jumlah data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membaca file csv</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Maternal_Health_Risk.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#jumlah data dan fitur</span>
 <span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1014, 7)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengakses tipe data dari setiap kolom dalam DataFrame.</span>
-<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age              int64
-SystolicBP       int64
-DiastolicBP      int64
-BS             float64
-BodyTemp       float64
-HeartRate        int64
-RiskLevel       object
-dtype: object
 </pre></div>
 </div>
 </div>
@@ -620,7 +596,43 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>tidak ada nilai yang hilang (NaN) dalam setiap kolom. Semua kolom memiliki nilai yang lengkap dan tidak ada yang perlu diproses lebih lanjut terkait dengan data yang hilang.</p>
+<p>Tidak ada missing value, tidak ada nilai yang hilang (NaN) dalam setiap kolom. Semua kolom memiliki nilai yang lengkap dan tidak ada yang perlu diproses lebih lanjut terkait dengan data yang hilang.</p>
+<p>Penanganan missing value (nilai yang hilang) pada data perlu dilakukan karena adanya nilai yang kosong dapat mempengaruhi analisis yang akurat dan kualitas hasil dari model yang dibangun.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengakses tipe data dari setiap kolom dalam DataFrame.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age              int64
+SystolicBP       int64
+DiastolicBP      int64
+BS             float64
+BodyTemp       float64
+HeartRate        int64
+RiskLevel       object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>tipe data pada fitur :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Age          : integer (bilangan bulat)
+2. SystolicBP   : integer (bilangan bulat)
+3. DiastolicBP  : integer (bilangan bulat)
+4. BS           : float (bilangan desimal)
+5. BodyTemp     : float (bilangan desimal)
+6. HeartRate    : integer (bilangan bulat)
+7. RiskLevel    : categorial (data kategori yang menggambarkan tingkat risiko yang diprediksi dalam kategori tertentu.)
+</pre></div>
+</div>
+<p>#<strong>2. Penjelasan Setiap Program itu ada di dalam Code</strong></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eksplorasi-data">
+<h1>- - -  <strong>EKSPLORASI DATA</strong> - - -<a class="headerlink" href="#eksplorasi-data" title="Permalink to this heading">#</a></h1>
+<p><strong>mengelompokkan kolom-kolom berdasarkan karakteristik tertentu</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># untuk mengelompokkan kolom-kolom berdasarkan karakteristik tertentu</span>
@@ -762,11 +774,11 @@ dtype: int64
 </div>
 </div>
 </div>
+<p><strong>Mengubah label menjadi nilai numerik</strong></p>
+<p>Tujuan: Memfasilitasi analisis data atau pembuatan model dengan menggunakan kolom ‘RiskLevel’</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengubah label menjadi nilai numerik</span>
-<span class="c1"># Tujuan: Memfasilitasi analisis data atau pembuatan model dengan menggunakan kolom &#39;RiskLevel&#39;</span>
-<span class="c1"># Kolom &#39;RiskLevel&#39; awalnya memiliki label kategori (&#39;low risk&#39;, &#39;mid risk&#39;, &#39;high risk&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kolom &#39;RiskLevel&#39; awalnya memiliki label kategori (&#39;low risk&#39;, &#39;mid risk&#39;, &#39;high risk&#39;)</span>
 <span class="c1"># Kode ini mengganti label tersebut menjadi nilai numerik (0, 1, 2) secara berurutan</span>
 <span class="c1"># Ini memudahkan penggunaan kolom &#39;RiskLevel&#39; dalam analisis atau pemodelan karena nilai numerik bisa diproses lebih mudah</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RiskLevel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s1">&#39;low risk&#39;</span><span class="p">,</span> <span class="s1">&#39;mid risk&#39;</span><span class="p">,</span> <span class="s1">&#39;high risk&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -777,7 +789,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5" class="colab-df-container">
+  <div id="df-16149d05-cc74-41a9-8439-e2f08ff62e82" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -923,7 +935,7 @@ dtype: int64
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-16149d05-cc74-41a9-8439-e2f08ff62e82')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -975,12 +987,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5 button.colab-df-convert');
+        document.querySelector('#df-16149d05-cc74-41a9-8439-e2f08ff62e82 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f4af36d9-2373-4776-9303-7dd9bc7ea2e5');
+        const element = document.querySelector('#df-16149d05-cc74-41a9-8439-e2f08ff62e82');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1000,8 +1012,8 @@ dtype: int64
   </div>
 
 
-<div id="df-b0a60f58-2d4e-4e82-b933-081088fd6de6">
-  <button class="colab-df-quickchart" onclick="quickchart('df-b0a60f58-2d4e-4e82-b933-081088fd6de6')"
+<div id="df-a4b4ae19-e2c3-420f-9848-4c9a7078a6d4">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a4b4ae19-e2c3-420f-9848-4c9a7078a6d4')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1120,7 +1132,7 @@ dtype: int64
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-b0a60f58-2d4e-4e82-b933-081088fd6de6 button');
+        document.querySelector('#df-a4b4ae19-e2c3-420f-9848-4c9a7078a6d4 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1130,11 +1142,11 @@ dtype: int64
   </div>
 </div></div>
 </div>
+<p><strong>Menampilkan jumlah kemunculan setiap nilai unik dalam kolom ‘RiskLevel’ dari DataFrame</strong></p>
+<p>Fungsi ‘value_counts()’ digunakan untuk menghitung dan menampilkan jumlah kemunculan setiap nilai unik</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menampilkan jumlah kemunculan setiap nilai unik dalam kolom &#39;RiskLevel&#39; dari DataFrame</span>
-<span class="c1"># Fungsi &#39;value_counts()&#39; digunakan untuk menghitung dan menampilkan jumlah kemunculan setiap nilai unik</span>
-<span class="c1"># Kolom &#39;RiskLevel&#39; mungkin memiliki beberapa nilai seperti &#39;low risk&#39;, &#39;mid risk&#39;, &#39;high risk&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kolom &#39;RiskLevel&#39; mungkin memiliki beberapa nilai seperti &#39;low risk&#39;, &#39;mid risk&#39;, &#39;high risk&#39;</span>
 <span class="c1"># Kode ini membantu untuk memahami distribusi nilai dalam kolom tersebut</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RiskLevel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
@@ -1149,10 +1161,10 @@ Name: RiskLevel, dtype: int64
 </div>
 </div>
 </div>
+<p><strong>Membuat plot countplot untuk kolom ‘RiskLevel’ dalam DataFrame ‘df’</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat plot countplot untuk kolom &#39;RiskLevel&#39; dalam DataFrame &#39;df&#39;</span>
-<span class="c1"># plt.figure(figsize=(8, 6)) digunakan untuk menentukan ukuran plot (lebar: 8 inch, tinggi: 6 inch)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt.figure(figsize=(8, 6)) digunakan untuk menentukan ukuran plot (lebar: 8 inch, tinggi: 6 inch)</span>
 <span class="c1"># sns.countplot(data=df, x=&#39;RiskLevel&#39;) membuat plot countplot menggunakan library seaborn (sns)</span>
 <span class="c1"># dengan sumbu x adalah &#39;RiskLevel&#39; dari DataFrame &#39;df&#39;</span>
 <span class="c1"># Plot ini akan menunjukkan jumlah kemunculan setiap nilai dalam kolom &#39;RiskLevel&#39;</span>
@@ -1173,12 +1185,10 @@ Name: RiskLevel, dtype: int64
 </div>
 </div>
 <p>perbedaan antara kelas terbanyak (Low risk: 406 data) dan kelas terdikit (High risk: 272 data) tidak terlalu besar, meskipun ada perbedaan.Dengan mempertimbangkan perbedaan jumlah yang relatif kecil antara kelas-kelas dalam dataset tersebut, dapat dikatakan bahwa data tersebut cenderung lebih seimbang atau balence.</p>
+<p><strong>Histogram</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># histogram</span>
-<span class="c1"># Mengimpor library matplotlib.pyplot untuk visualisasi</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
 <span class="c1"># df.hist(bins=50, figsize=(20, 15)) digunakan untuk membuat histogram untuk setiap kolom dalam DataFrame &#39;df&#39;</span>
 <span class="c1"># bins=50 menentukan jumlah bin (batang) pada histogram</span>
 <span class="c1"># figsize=(20, 15) menentukan ukuran gambar plot histogram (lebar: 20 inch, tinggi: 15 inch)</span>
@@ -1193,10 +1203,75 @@ Name: RiskLevel, dtype: int64
 <img alt="_images/c6671608183842d536339e6cdd2326fc2476508fc253e5ec950e7557f3261e75.png" src="_images/c6671608183842d536339e6cdd2326fc2476508fc253e5ec950e7557f3261e75.png" />
 </div>
 </div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-preprocessing-dan-model">
+<h1><strong>3. Penjelasan Preprocessing dan Model</strong><a class="headerlink" href="#penjelasan-preprocessing-dan-model" title="Permalink to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preprocessing">
+<h1>- - -  <strong>PREPROCESSING</strong> - - -<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h1>
+<p>Preprocessing data merupakan tahap penting dalam analisis data yang bertujuan untuk membersihkan, mengubah, dan mempersiapkan data mentah menjadi format yang lebih cocok dan bermanfaat untuk analisis lebih lanjut.</p>
+<p>Preprocessing pada data berikut adalah :</p>
+<ul class="simple">
+<li><p>normalisasi</p></li>
+</ul>
+<p><strong>NORMALISASI</strong></p>
+<ul class="simple">
+<li><p>Normalisasi adalah proses transformasi data sehingga nilainya berada dalam rentang tertentu atau memiliki distribusi yang sesuai untuk analisis atau pemodelan yang lebih baik. Normalisasi dapat menggunakan berbagai metode, salah satunya adalah Normalisasi Z-Score.</p></li>
+<li><p>Normalisasi Z-Score adalah salah satu teknik normalisasi yang menggunakan nilai rata-rata dan deviasi standar dari data untuk mengubah nilai-nilai tersebut ke dalam distribusi standar (distribusi normal dengan mean 0 dan standar deviasi 1).</p></li>
+</ul>
+<p><em>normalisasi yang digunakan disini adalah</em> <strong>Z-Score</strong></p>
+<p>Rumus Normalisasi Z-Score:</p>
+<p><span class="math notranslate nohighlight">\( Z = \frac{{X - \mu}}{{\sigma}} \)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Z\)</span> adalah skor Z (Z-score).</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> adalah nilai yang akan dinormalisasi.</p></li>
+<li><p>$\mu$ adalah rerata (mean) dari sampel.</p></li>
+<li><p>$\sigma$ adalah deviasi standar (standard deviation) dari sampel.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Memisahkan dataset menjadi fitur (X) dan target (y)</span>
-<span class="c1"># X adalah subset dari DataFrame df yang terdiri dari semua kolom kecuali kolom terakhir (&#39;RiskLevel&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalisasi menggunakan Z-score</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">normalized_data</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Membuat DataFrame baru dari data yang sudah dinormalisasi</span>
+<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">normalized_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan beberapa baris pertama dari DataFrame yang sudah dinormalisasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_normalized</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Simpan hasil normalisasi ke file CSV baru</span>
+<span class="n">df_normalized</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;hasil_normalisasi.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Age  SystolicBP  DiastolicBP        BS  BodyTemp  HeartRate  RiskLevel
+0 -0.361738    0.913396     0.255023  1.905890 -0.485215   1.446956   1.402991
+1  0.380777    1.457027     0.975539  1.298340 -0.485215  -0.532088   1.402991
+2 -0.064732   -1.261127    -0.465493 -0.220537  0.973884   0.704815   1.402991
+3  0.009519    1.457027     0.615281 -0.524312 -0.485215  -0.532088   1.402991
+4  0.380777    0.369765    -1.186009 -0.797710 -0.485215   0.210054  -1.075464
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpan hasil normalisasi ke file pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hasil_normalisasi.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">df_normalized</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="model">
+<h1>- - -  <strong>MODEL</strong> - - -<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h1>
+<p><strong>Memisahkan dataset menjadi fitur (X) dan target (y)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X adalah subset dari DataFrame df yang terdiri dari semua kolom kecuali kolom terakhir (&#39;RiskLevel&#39;)</span>
 <span class="c1"># y adalah subset dari DataFrame df yang hanya terdiri dari kolom &#39;RiskLevel&#39; sebagai target</span>
 <span class="c1"># X.shape digunakan untuk menampilkan dimensi dari dataset fitur (jumlah baris, jumlah kolom)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>  <span class="c1"># Memilih semua kolom kecuali kolom terakhir</span>
@@ -1205,322 +1280,9 @@ Name: RiskLevel, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menampilkan lima baris pertama dari variabel X yang Memilih semua kolom kecuali kolom &quot;RiskLevel&quot;</span>
-<span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>SystolicBP</th>
-      <th>DiastolicBP</th>
-      <th>BS</th>
-      <th>BodyTemp</th>
-      <th>HeartRate</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>25</td>
-      <td>130</td>
-      <td>80</td>
-      <td>15.0</td>
-      <td>98.0</td>
-      <td>86</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>35</td>
-      <td>140</td>
-      <td>90</td>
-      <td>13.0</td>
-      <td>98.0</td>
-      <td>70</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>29</td>
-      <td>90</td>
-      <td>70</td>
-      <td>8.0</td>
-      <td>100.0</td>
-      <td>80</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>30</td>
-      <td>140</td>
-      <td>85</td>
-      <td>7.0</td>
-      <td>98.0</td>
-      <td>70</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>35</td>
-      <td>120</td>
-      <td>60</td>
-      <td>6.1</td>
-      <td>98.0</td>
-      <td>76</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5 button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-86281b2e-5dc9-4fe3-90d9-b8d2b6edefe5');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-<div id="df-49aba69c-3255-4613-8d07-d10b647b551d">
-  <button class="colab-df-quickchart" onclick="quickchart('df-49aba69c-3255-4613-8d07-d10b647b551d')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-49aba69c-3255-4613-8d07-d10b647b551d button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-    </div>
-  </div>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menampilkan lima baris pertama dari variabel y yang Memilih kolom &quot;RiskLevel&quot;</span>
-<span class="n">y</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    2
-1    2
-2    2
-3    2
-4    0
-Name: RiskLevel, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="split-data">
-<h1>- - -  <strong>SPLIT DATA</strong> - - -<a class="headerlink" href="#split-data" title="Permalink to this heading">#</a></h1>
+<h1><strong>SPLIT DATA</strong><a class="headerlink" href="#split-data" title="Permalink to this heading">#</a></h1>
 <p>Fungsinya untuk membagi dataset menjadi data pelatihan dan pengujian.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1561,137 +1323,6 @@ Testing Shape y: (1014,)
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="penjelasan-preprocessing-dan-model">
-<h1><strong>3. Penjelasan Preprocessing dan Model</strong><a class="headerlink" href="#penjelasan-preprocessing-dan-model" title="Permalink to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="preprocessing">
-<h1>- - -  <strong>PREPROCESSING</strong> - - -<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h1>
-<p>pada data berikut adalah :</p>
-<ul class="simple">
-<li><p>normalisasi</p></li>
-</ul>
-<p><strong>NORMALISASI</strong></p>
-<ul class="simple">
-<li><p>Normalisasi adalah proses transformasi data sehingga nilainya berada dalam rentang tertentu atau memiliki distribusi yang sesuai untuk analisis atau pemodelan yang lebih baik. Normalisasi dapat menggunakan berbagai metode, salah satunya adalah Normalisasi Z-Score.</p></li>
-<li><p>Normalisasi Z-Score adalah salah satu teknik normalisasi yang menggunakan nilai rata-rata dan deviasi standar dari data untuk mengubah nilai-nilai tersebut ke dalam distribusi standar (distribusi normal dengan mean 0 dan standar deviasi 1).</p></li>
-</ul>
-<p><em>normalisasi yang digunakan disini adalah</em> <strong>Z-Score</strong></p>
-<p>Rumus Normalisasi Z-Score:</p>
-<p><span class="math notranslate nohighlight">\( Z = \frac{{X - \mu}}{{\sigma}} \)</span></p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Z\)</span> adalah skor Z (Z-score).</p></li>
-<li><p><span class="math notranslate nohighlight">\(X\)</span> adalah nilai yang akan dinormalisasi.</p></li>
-<li><p>$\mu$ adalah rerata (mean) dari sampel.</p></li>
-<li><p>$\sigma$ adalah deviasi standar (standard deviation) dari sampel.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># StandardScaler adalah sebuah metode untuk melakukan normalisasi data dengan skala Z-score.</span>
-<span class="c1"># Normalisasi Z-score mengubah data sehingga memiliki rata-rata nol dan standar deviasi satu.</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">pickle</span> <span class="kn">import</span> <span class="n">dump</span>
-
-<span class="c1"># Membuat objek StandardScaler</span>
-<span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-
-<span class="c1"># Melatih (fit) StandardScaler pada data X_train</span>
-<span class="n">ss</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># Mengubah (transform) data X_train sesuai dengan skala yang telah dipelajari oleh StandardScaler</span>
-<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-<span class="c1"># Langkah yang sama dengan pendekatan yang lebih singkat:</span>
-<span class="c1"># ss_X_train = ss.fit_transform(X_train)</span>
-<span class="c1"># ss_X_test = ss.fit_transform(X_test)</span>
-
-<span class="c1"># Mengaplikasikan transformasi yang sama ke data test (X_test) dengan skala yang sama dari X_train</span>
-<span class="c1"># Penting untuk menggunakan skala yang sama untuk data train dan test untuk memastikan konsistensi dalam analisis</span>
-<span class="n">ss_X_train</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">ss_X_test</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
-
-<span class="c1"># Membuat DataFrame baru (df_normalized) dari data yang telah dinormalisasi (ss_X_train) dengan nama kolom yang sesuai dengan X_train.columns</span>
-<span class="n">df_normalized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ss_X_train</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># Ganti X_train.columns sesuai dengan kolom yang sesuai</span>
-
-<span class="c1"># Menyimpan DataFrame ke dalam file CSV dengan nama &#39;hasil_sudah_normalisasi.csv&#39; tanpa menyertakan indeks</span>
-<span class="n">df_normalized</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;hasil_sudah_normalisasi_maternal.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Mengunduh file CSV (&#39;hasil_sudah_normalisasi.csv&#39;) yang telah disimpan</span>
-<span class="n">files</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;hasil_sudah_normalisasi_maternal.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<script type="application/javascript">
-    async function download(id, filename, size) {
-      if (!google.colab.kernel.accessAllowed) {
-        return;
-      }
-      const div = document.createElement('div');
-      const label = document.createElement('label');
-      label.textContent = `Downloading "${filename}": `;
-      div.appendChild(label);
-      const progress = document.createElement('progress');
-      progress.max = size;
-      div.appendChild(progress);
-      document.body.appendChild(div);
-
-      const buffers = [];
-      let downloaded = 0;
-
-      const channel = await google.colab.kernel.comms.open(id);
-      // Send a message to notify the kernel that we're ready.
-      channel.send({})
-
-      for await (const message of channel.messages) {
-        // Send a message to notify the kernel that we're ready.
-        channel.send({})
-        if (message.buffers) {
-          for (const buffer of message.buffers) {
-            buffers.push(buffer);
-            downloaded += buffer.byteLength;
-            progress.value = downloaded;
-          }
-        }
-      }
-      const blob = new Blob(buffers, {type: 'application/binary'});
-      const a = document.createElement('a');
-      a.href = window.URL.createObjectURL(blob);
-      a.download = filename;
-      div.appendChild(a);
-      a.click();
-      div.remove();
-    }
-  </script><script type="application/javascript">download("download_c481824f-a175-4c11-882d-8ab2701dd67d", "hasil_sudah_normalisasi_maternal.csv", 83580)</script></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menyimpan preprocessing</span>
-<span class="c1"># Mengimpor modul pickle yang memungkinkan penyimpanan objek Python ke dalam file</span>
-<span class="kn">import</span> <span class="nn">pickle</span>
-
-<span class="c1"># Path atau lokasi file di mana model akan disimpan</span>
-<span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/psd/Maternal_Health_Risk/normalisasi_ini.pkl&#39;</span>
-
-<span class="c1"># Membuka file dalam mode write binary (&#39;wb&#39;) untuk menyimpan model</span>
-<span class="c1"># &#39;ss&#39; adalah objek yang akan disimpan (model normalisasi atau objek lainnya)</span>
-<span class="c1"># pickle.dump(ss, file) digunakan untuk menyimpan objek &#39;ss&#39; ke dalam file menggunakan pickle</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">ss</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="model">
-<h1>- - -  <strong>MODEL</strong> - - -<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h1>
 <p><strong>Perbandingan Beberapa Model dengan akurasi</strong></p>
 <ul class="simple">
 <li><p><strong>SVM</strong></p></li>
@@ -1788,29 +1419,29 @@ weighted avg       0.73      0.72      0.72       305
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
-Test accuracy: 0.8
-[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 0 0 0 1 2 0 1 0 2 2
- 0 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 1 0 1 0 1 1 0 0 2 1 2 1 2 2 2 1 1
- 1 2 0 1 2 0 0 1 0 0 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
+Test accuracy: 0.7934426229508197
+[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 2 1 2 0 0 0 1 2 0 1 0 2 2
+ 0 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 0 0 1 0 1 1 0 0 2 1 2 1 2 2 2 1 1
+ 1 2 2 1 2 0 0 1 0 0 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
  1 0 2 1 0 0 2 1 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
  0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 1 0 0 2 0 1 0 1 2 1 1 0 0 2 1 0 2 2
  0 2 0 1 0 1 1 1 1 0 1 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
  1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
- 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 1 2 0 1 1 2 1 0 0 0 2
+ 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 1 0 0 2 2 1 2 0 1 1 2 1 0 0 0 2
  2 0 1 0 2 2 1 2 1]
-CM: [[88 25  4]
+CM: [[86 25  6]
  [16 87  9]
  [ 1  6 69]]
-Accuracy: 80.0 %
+Accuracy: 79.34426229508198 %
               precision    recall  f1-score   support
 
-           0       0.84      0.75      0.79       117
+           0       0.83      0.74      0.78       117
            1       0.74      0.78      0.76       112
-           2       0.84      0.91      0.87        76
+           2       0.82      0.91      0.86        76
 
-    accuracy                           0.80       305
-   macro avg       0.81      0.81      0.81       305
-weighted avg       0.80      0.80      0.80       305
+    accuracy                           0.79       305
+   macro avg       0.80      0.81      0.80       305
+weighted avg       0.80      0.79      0.79       305
 </pre></div>
 </div>
 </div>
@@ -2014,29 +1645,29 @@ k Terbaik: 1 dengan Skor Akurasi: 0.7836065573770492
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
-Test accuracy: 0.8032786885245902
-[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 1 0 0 1 2 0 1 0 2 2
- 1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
- 1 2 0 1 2 0 0 1 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
+Test accuracy: 0.7868852459016393
+[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 1 0 0 1 2 0 1 2 2 2
+ 1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 1 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
+ 1 2 0 1 2 0 0 0 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
  1 0 2 1 0 0 2 0 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
  0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 1 0 0 2 0 1 0 1 2 1 0 0 0 2 1 0 2 2
- 0 2 0 0 0 1 1 1 1 0 0 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
+ 0 2 0 0 0 1 1 1 1 0 1 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
  1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
- 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
+ 2 1 1 1 1 1 2 1 0 2 1 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
  2 0 1 0 2 2 1 2 1]
-Confusion Matrix: [[89 24  4]
- [16 87  9]
- [ 2  5 69]]
-Accuracy: 80.32786885245902 %
+Confusion Matrix: [[86 26  5]
+ [18 85  9]
+ [ 1  6 69]]
+Accuracy: 78.68852459016394 %
               precision    recall  f1-score   support
 
-           0       0.83      0.76      0.79       117
-           1       0.75      0.78      0.76       112
-           2       0.84      0.91      0.87        76
+           0       0.82      0.74      0.77       117
+           1       0.73      0.76      0.74       112
+           2       0.83      0.91      0.87        76
 
-    accuracy                           0.80       305
-   macro avg       0.81      0.82      0.81       305
-weighted avg       0.80      0.80      0.80       305
+    accuracy                           0.79       305
+   macro avg       0.79      0.80      0.80       305
+weighted avg       0.79      0.79      0.79       305
 </pre></div>
 </div>
 </div>
@@ -2074,12 +1705,12 @@ weighted avg       0.80      0.80      0.80       305
 <li><p>Dalam kasus klasifikasi, hasil mayoritas dari semua prediksi pohon diambil sebagai prediksi akhir.</p></li>
 </ul>
 <p><strong>Rumus Random Forest Classifier:</strong></p>
-<p><span class="math notranslate nohighlight">\(\hat{Y} = \frac{1}{N} \sum_{i=1}^{N} f_i(X)\)</span></p>
-<p>di mana:</p>
-<p><span class="math notranslate nohighlight">\(\hat{Y}\)</span> adalah prediksi akhir,</p>
-<p><span class="math notranslate nohighlight">\(N\)</span> adalah jumlah pohon keputusan dalam ensemble,</p>
-<p><span class="math notranslate nohighlight">\(X\)</span> adalah prediksi yang dihasilkan oleh pohon keputusan ke-
-i.</p>
+<p>Pertama, kita memperkirakan prediksi dari setiap pohon keputusan, dan kemudian mengambil hasil mayoritas dari semua prediksi pohon untuk menentukan prediksi akhir.</p>
+<p>Prediksi dari setiap pohon keputusan <span class="math notranslate nohighlight">\(i\)</span>: <span class="math notranslate nohighlight">\(P_i\)</span></p>
+<p>Untuk <span class="math notranslate nohighlight">\(N\)</span> pohon keputusan:</p>
+<p><span class="math notranslate nohighlight">\(P_1, P_2, P_3, ..., P_N\)</span></p>
+<p>Hasil klasifikasi akhir adalah prediksi mayoritas:</p>
+<p><span class="math notranslate nohighlight">\(P_{\text{final}} = \text{Majority}(P_1, P_2, P_3, ..., P_N)\)</span></p>
 <p><strong>Contoh Penghitungan Random Forest pada Kasus Klasifikasi:</strong></p>
 <p>Misalkan kita memiliki ensemble Random Forest dengan 3 pohon keputusan. Setiap pohon menghasilkan prediksi terhadap sebuah sampel data sebagai berikut:</p>
 <p>Pohon 1: Prediksi kelas A</p>
@@ -2156,8 +1787,8 @@ random_state Terbaik: 4 dengan Skor Akurasi: 0.8098360655737705
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="link-aplikasi-model-ada-di-www">
-<h1><strong>Link Aplikasi Model ada di www.</strong><a class="headerlink" href="#link-aplikasi-model-ada-di-www" title="Permalink to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="link-aplikasi-deployment-menggunakan-streamlit-ada-di-https-2edwumwvadmlng4pqmh4fs-streamlit-app">
+<h1><strong>Link Aplikasi deployment menggunakan streamlit ada di <a class="reference external" href="https://2edwumwvadmlng4pqmh4fs.streamlit.app/">https://2edwumwvadmlng4pqmh4fs.streamlit.app/</a></strong><a class="headerlink" href="#link-aplikasi-deployment-menggunakan-streamlit-ada-di-https-2edwumwvadmlng4pqmh4fs-streamlit-app" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2216,14 +1847,13 @@ random_state Terbaik: 4 dengan Skor Akurasi: 0.8098360655737705
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>DATA MATERNAL HEALTH RISK (risiko kesehatan ibu hamil)</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-detail-terkait-fitur-yang-ada"><strong>Penjelasan Detail Terkait fitur yang Ada:</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-google-drive">- - -  <strong>Connect To Google Drive</strong> - - -</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">- - -  <strong>IMPORT LIBRARY</strong> - - -</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library"><strong>IMPORT LIBRARY</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eksplorasi-data">- - -  <strong>EKSPLORASI DATA</strong> - - -</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">- - -  <strong>SPLIT DATA</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-preprocessing-dan-model"><strong>3. Penjelasan Preprocessing dan Model</strong></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">- - -  <strong>PREPROCESSING</strong> - - -</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model">- - -  <strong>MODEL</strong> - - -</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-aplikasi-model-ada-di-www"><strong>Link Aplikasi Model ada di www.</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data"><strong>SPLIT DATA</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-aplikasi-deployment-menggunakan-streamlit-ada-di-https-2edwumwvadmlng4pqmh4fs-streamlit-app"><strong>Link Aplikasi deployment menggunakan streamlit ada di https://2edwumwvadmlng4pqmh4fs.streamlit.app/</strong></a></li>
 </ul>
 
   </nav></div>

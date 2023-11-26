@@ -31,6 +31,7 @@ The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
 # Connect To Google Drive
+# untuk menghubungkan Google Colab dengan Google Drive
 from google.colab import drive
 drive.mount('/content/drive')
 -------------------

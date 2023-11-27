@@ -789,7 +789,7 @@ dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df" class="colab-df-container">
+  <div id="df-2db729cf-86df-4819-8401-a426f824d517" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -935,7 +935,7 @@ dtype: object
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2db729cf-86df-4819-8401-a426f824d517')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -987,12 +987,12 @@ dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df button.colab-df-convert');
+        document.querySelector('#df-2db729cf-86df-4819-8401-a426f824d517 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df');
+        const element = document.querySelector('#df-2db729cf-86df-4819-8401-a426f824d517');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1012,8 +1012,8 @@ dtype: object
   </div>
 
 
-<div id="df-2564be0e-78eb-4047-a496-84e9b0186644">
-  <button class="colab-df-quickchart" onclick="quickchart('df-2564be0e-78eb-4047-a496-84e9b0186644')"
+<div id="df-65056714-2289-450b-86ce-9b814ed0161a">
+  <button class="colab-df-quickchart" onclick="quickchart('df-65056714-2289-450b-86ce-9b814ed0161a')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1132,7 +1132,7 @@ dtype: object
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-2564be0e-78eb-4047-a496-84e9b0186644 button');
+        document.querySelector('#df-65056714-2289-450b-86ce-9b814ed0161a button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1497,13 +1497,13 @@ weighted avg       0.78      0.78      0.78       305
 \[
 P(C_k | x) = \frac{1}{Z} P(C_k) \prod_{i=1}^{n} P(x_i | C_k)
 \]</div>
-<p>di mana:
-\begin{align*}
-P(C_k | x) &amp; : \text{Probabilitas posterior dari kelas } C_k \text{ berdasarkan fitur } x \
-P(C_k) &amp; : \text{Probabilitas prior dari kelas } C_k \
-P(x_i | C_k) &amp; : \text{Probabilitas fitur } x_i \text{ terjadi pada kelas } C_k \
-Z &amp; : \text{Faktor normalisasi}
-\end{align*}</p>
+<p>Di mana:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(C_k | x)\)</span> adalah probabilitas bahwa data <span class="math notranslate nohighlight">\((x)\)</span> termasuk dalam kelas <span class="math notranslate nohighlight">\((C_k)\)</span> setelah diberikan data fitur <span class="math notranslate nohighlight">\((x)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((P(C_k))\)</span> adalah probabilitas prior dari kelas <span class="math notranslate nohighlight">\((C_k)\)</span>, yaitu probabilitas sebelum informasi tambahan dari fitur <span class="math notranslate nohighlight">\((x)\)</span> dipertimbangkan.</p></li>
+<li><p><span class="math notranslate nohighlight">\((P(x_i | C_k))\)</span> adalah probabilitas kondisional dari fitur <span class="math notranslate nohighlight">\((x_i)\)</span> jika diketahui data termasuk dalam kelas <span class="math notranslate nohighlight">\((C_k)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((Z)\)</span> adalah faktor normalisasi yang memastikan bahwa probabilitas untuk semua kelas bersifat distribusi probabilitas (jumlah dari semua probabilitas kelas setelah diberikan fitur <span class="math notranslate nohighlight">\((x)\)</span> adalah 1).</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gaussian Naive Bayes (GaussianNB)</span>
@@ -1568,6 +1568,19 @@ weighted avg       0.58      0.56      0.51       305
 </div>
 <ul class="simple">
 <li><p><strong>LogisticRegression</strong></p></li>
+</ul>
+<p>Logistic Regression adalah metode statistik yang digunakan untuk memodelkan hubungan antara variabel dependen biner dengan satu atau lebih variabel independen. Ini adalah algoritma klasifikasi yang digunakan untuk memprediksi probabilitas bahwa sebuah instance akan termasuk dalam kelas tertentu berdasarkan nilai-nilai fitur.</p>
+<p>Fungsi Sigmoid:
+$<span class="math notranslate nohighlight">\( \sigma(z) = \frac{1}{1 + e^{-z}} \)</span>$</p>
+<p>Fungsi Hipotesis dalam Logistic Regression:
+$<span class="math notranslate nohighlight">\( h_{\beta}(x) = \sigma(\beta^T x) = \frac{1}{1 + e^{-\beta^T x}} \)</span>$</p>
+<p>Fungsi Cost atau Loss (untuk satu instance):
+$<span class="math notranslate nohighlight">\( \text{Cost}(h_{\beta}(x), y) = -y \log(h_{\beta}(x)) - (1 - y) \log(1 - h_{\beta}(x)) \)</span>$</p>
+<p>Dimana :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((h_{\beta}(x), y)\)</span> adalah prediksi dari fungsi hipotesis,</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> adalah label aktual (0 atau 1),</p></li>
+<li><p><span class="math notranslate nohighlight">\(β\)</span> adalah vektor koefisien.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1764,29 +1777,29 @@ k Terbaik: 1 dengan Skor Akurasi: 0.7836065573770492
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
-Test accuracy: 0.8032786885245902
+Test accuracy: 0.7967213114754098
 [1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 1 0 0 1 2 0 1 0 2 2
  1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 1 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
- 1 2 0 1 2 0 0 1 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 1 2 1 0 2 0 0 1 1 0 1 0 1 1
+ 1 2 0 1 2 0 0 1 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
  1 0 2 1 0 0 2 0 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
  0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 0 0 0 2 0 1 0 1 2 1 0 0 0 2 1 0 2 2
- 0 2 0 0 0 1 1 1 1 1 0 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
+ 0 2 0 0 0 1 1 1 1 0 0 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
  1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
- 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
+ 2 1 1 1 1 1 2 1 1 2 1 2 2 0 1 2 2 0 0 2 0 1 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
  2 0 1 0 2 2 1 2 1]
-Confusion Matrix: [[88 25  4]
- [15 88  9]
+Confusion Matrix: [[87 26  4]
+ [16 87  9]
  [ 2  5 69]]
-Accuracy: 80.32786885245902 %
+Accuracy: 79.67213114754098 %
               precision    recall  f1-score   support
 
-           0       0.84      0.75      0.79       117
-           1       0.75      0.79      0.77       112
+           0       0.83      0.74      0.78       117
+           1       0.74      0.78      0.76       112
            2       0.84      0.91      0.87        76
 
     accuracy                           0.80       305
-   macro avg       0.81      0.82      0.81       305
-weighted avg       0.81      0.80      0.80       305
+   macro avg       0.80      0.81      0.80       305
+weighted avg       0.80      0.80      0.80       305
 </pre></div>
 </div>
 </div>

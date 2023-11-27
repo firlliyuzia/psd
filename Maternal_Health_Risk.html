@@ -789,7 +789,7 @@ dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-16149d05-cc74-41a9-8439-e2f08ff62e82" class="colab-df-container">
+  <div id="df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -935,7 +935,7 @@ dtype: object
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-16149d05-cc74-41a9-8439-e2f08ff62e82')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -987,12 +987,12 @@ dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-16149d05-cc74-41a9-8439-e2f08ff62e82 button.colab-df-convert');
+        document.querySelector('#df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-16149d05-cc74-41a9-8439-e2f08ff62e82');
+        const element = document.querySelector('#df-c4fdab3b-5943-4d74-8bff-1e4733ceb7df');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1012,8 +1012,8 @@ dtype: object
   </div>
 
 
-<div id="df-a4b4ae19-e2c3-420f-9848-4c9a7078a6d4">
-  <button class="colab-df-quickchart" onclick="quickchart('df-a4b4ae19-e2c3-420f-9848-4c9a7078a6d4')"
+<div id="df-2564be0e-78eb-4047-a496-84e9b0186644">
+  <button class="colab-df-quickchart" onclick="quickchart('df-2564be0e-78eb-4047-a496-84e9b0186644')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1132,7 +1132,7 @@ dtype: object
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-a4b4ae19-e2c3-420f-9848-4c9a7078a6d4 button');
+        document.querySelector('#df-2564be0e-78eb-4047-a496-84e9b0186644 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1323,9 +1323,31 @@ Testing Shape y: (1014,)
 </div>
 </div>
 </div>
-<p><strong>Perbandingan Beberapa Model dengan akurasi</strong></p>
 <ul class="simple">
 <li><p><strong>SVM</strong></p></li>
+</ul>
+<p>SVM merupakan algoritma pembelajaran yang digunakan untuk masalah klasifikasi dan regresi. Tujuannya adalah untuk menemukan hyperplane yang memisahkan dua kelas data dengan margin terbesar.</p>
+<ol class="arabic simple">
+<li><p>Hyperplane: Sebuah hyperplane merupakan sebuah permukaan yang membagi ruang menjadi dua bagian sehingga dapat memisahkan antara dua kelas data. Dalam kasus 2 dimensi, hyperplane adalah sebuah garis. Namun, di dimensi yang lebih tinggi, hyperplane adalah sebuah permukaan.</p></li>
+<li><p>Margin: Margin adalah jarak antara hyperplane dan titik-titik terdekat dari masing-masing kelas. SVM berusaha untuk menemukan hyperplane dengan margin terbesar.</p></li>
+<li><p>Support Vectors: Support vectors adalah titik-titik dari setiap kelas yang berada tepat di sebelah margin. Mereka mempengaruhi penempatan dan orientasi dari hyperplane.</p></li>
+</ol>
+<p>Rumus umum dari SVM (Support Vector Machine) adalah sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{w, b, \zeta} \frac{1}{2} \|w\|^2 + C \sum_{i=1}^{N} \zeta_i
+\]</div>
+<p>dengan batasan:</p>
+<div class="math notranslate nohighlight">
+\[
+y_i(w \cdot x_i + b) \geq 1
+\]</div>
+<p>dimana:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(w\)</span> adalah vektor bobot.</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> adalah bias.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> adalah vektor fitur dari setiap titik data.</p></li>
+<li><p><span class="math notranslate nohighlight">\(y_i\)</span> adalah label dari setiap titik data.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1393,6 +1415,27 @@ weighted avg       0.73      0.72      0.72       305
 <ul class="simple">
 <li><p><strong>Decision Tree</strong></p></li>
 </ul>
+<p>Decision Tree merupakan algoritma pembelajaran mesin yang menggunakan struktur pohon keputusan untuk melakukan klasifikasi. Pada setiap simpul (node) dari pohon keputusan, algoritma memilih atribut terbaik untuk membagi data ke dalam subset yang lebih kecil. Tujuannya adalah untuk meminimalkan keragaman kelas di dalam setiap subset dan memaksimalkan homogenitas kelas di setiap cabang (branch) pohon.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\require{enclose}
+\begin{array}{c}
+\text{Jika Atribut X} \leq 10 \\
+\enclose{circle}{\text{Kelas A}}
+\end{array}
+\quad \quad
+\begin{array}{c}
+\text{Jika Atribut X} &gt; 10 \\
+\begin{array}{c}
+\text{Jika Atribut Y} = \text{'Ya'} \\
+\enclose{circle}{\text{Kelas B}}
+\end{array} \\
+\begin{array}{c}
+\text{Jika Atribut Y} \neq \text{'Ya'} \\
+\enclose{circle}{\text{Kelas C}}
+\end{array}
+\end{array}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Decision Tree</span>
@@ -1419,29 +1462,29 @@ weighted avg       0.73      0.72      0.72       305
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
-Test accuracy: 0.7934426229508197
-[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 2 1 2 0 0 0 1 2 0 1 0 2 2
- 0 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 0 0 1 0 1 1 0 0 2 1 2 1 2 2 2 1 1
- 1 2 2 1 2 0 0 1 0 0 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
+Test accuracy: 0.7770491803278688
+[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 2 1 2 1 1 0 1 2 0 1 0 2 2
+ 1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 0 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
+ 1 2 2 1 2 0 0 1 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
  1 0 2 1 0 0 2 1 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
  0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 1 0 0 2 0 1 0 1 2 1 1 0 0 2 1 0 2 2
  0 2 0 1 0 1 1 1 1 0 1 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
  1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
  2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 1 0 0 2 2 1 2 0 1 1 2 1 0 0 0 2
  2 0 1 0 2 2 1 2 1]
-CM: [[86 25  6]
+CM: [[81 30  6]
  [16 87  9]
  [ 1  6 69]]
-Accuracy: 79.34426229508198 %
+Accuracy: 77.70491803278688 %
               precision    recall  f1-score   support
 
-           0       0.83      0.74      0.78       117
-           1       0.74      0.78      0.76       112
+           0       0.83      0.69      0.75       117
+           1       0.71      0.78      0.74       112
            2       0.82      0.91      0.86        76
 
-    accuracy                           0.79       305
-   macro avg       0.80      0.81      0.80       305
-weighted avg       0.80      0.79      0.79       305
+    accuracy                           0.78       305
+   macro avg       0.79      0.79      0.79       305
+weighted avg       0.78      0.78      0.78       305
 </pre></div>
 </div>
 </div>
@@ -1449,6 +1492,18 @@ weighted avg       0.80      0.79      0.79       305
 <ul class="simple">
 <li><p><strong>Gaussian Naive Bayes</strong></p></li>
 </ul>
+<p>Gaussian Naive Bayes adalah salah satu metode klasifikasi yang berdasarkan pada Teorema Bayes dengan asumsi bahwa fitur-fitur yang digunakan untuk klasifikasi adalah independen satu sama lain. Dalam konteks Gaussian Naive Bayes, diasumsikan bahwa distribusi nilai fitur-fitur pada setiap kelas adalah Gaussian (distribusi normal).</p>
+<div class="math notranslate nohighlight">
+\[
+P(C_k | x) = \frac{1}{Z} P(C_k) \prod_{i=1}^{n} P(x_i | C_k)
+\]</div>
+<p>di mana:
+\begin{align*}
+P(C_k | x) &amp; : \text{Probabilitas posterior dari kelas } C_k \text{ berdasarkan fitur } x \
+P(C_k) &amp; : \text{Probabilitas prior dari kelas } C_k \
+P(x_i | C_k) &amp; : \text{Probabilitas fitur } x_i \text{ terjadi pada kelas } C_k \
+Z &amp; : \text{Faktor normalisasi}
+\end{align*}</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gaussian Naive Bayes (GaussianNB)</span>
@@ -1553,6 +1608,22 @@ Please also refer to the documentation for alternative solver options:
 <ul class="simple">
 <li><p><strong>KNN</strong></p></li>
 </ul>
+<p>K-Nearest Neighbors (KNN) adalah algoritma pembelajaran yang berfungsi untuk klasifikasi dan regresi. Dalam konteks klasifikasi, KNN mencari kategori atau kelas untuk suatu data berdasarkan mayoritas kategori dari K tetangga terdekatnya. Konsep dasar KNN adalah sebagai berikut:</p>
+<ol class="arabic simple">
+<li><p>Pencarian Tetangga Terdekat: Jarak antara data baru yang akan diklasifikasikan dengan data yang sudah ada di set pelatihan diukur (misalnya dengan menggunakan Euclidean distance).</p></li>
+<li><p>Menentukan K: K adalah jumlah tetangga terdekat yang akan dipertimbangkan untuk pengklasifikasian suatu data baru.</p></li>
+<li><p>Voting Mayoritas: Kelas dari data baru ditentukan berdasarkan mayoritas kelas dari tetangga-tetangga terdekatnya.</p></li>
+</ol>
+<p>Rumus KNN menggunakan metrik jarak Euclidean:
+$<span class="math notranslate nohighlight">\( D(x_i, x_j) = \sqrt{\sum_{k=1}^{n}(x_{i,k} - x_{j,k})^2} \)</span>$</p>
+<p>Di mana:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(D(x_i, x_j)\)</span> adalah jarak Euclidean antara data (x_i) dan (x_j).</p></li>
+<li><p><span class="math notranslate nohighlight">\((n)\)</span> adalah jumlah fitur.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{i,k}\)</span> adalah nilai fitur ke-(k) dari data (x_i).</p></li>
+<li><p><span class="math notranslate nohighlight">\((x_{j,k})\)</span> adalah nilai fitur ke-(k) dari data (x_j).</p></li>
+</ul>
+<p>Kemudian, untuk klasifikasi, kita menentukan kelas data baru berdasarkan mayoritas kelas dari <span class="math notranslate nohighlight">\((K\)\)</span> tetangga terdekatnya.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menggunakan algoritma K-Nearest Neighbors untuk klasifikasi dengan variasi nilai k</span>
@@ -1610,68 +1681,6 @@ k Terbaik: 1 dengan Skor Akurasi: 0.7836065573770492
 <ul class="simple">
 <li><p><strong>Random Forest</strong></p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RandomForest</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-
-<span class="c1"># Membuat model RandomForestClassifier</span>
-<span class="n">random_forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
-
-<span class="c1"># Melatih model menggunakan data X_train dan y_train</span>
-<span class="n">random_forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan akurasi model pada data latih (train) dan data uji (test)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train accuracy:&quot;</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy:&quot;</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
-
-<span class="c1"># Melakukan prediksi terhadap data uji (test)</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan hasil prediksi</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
-
-<span class="c1"># Menghitung confusion matrix untuk mengevaluasi performa model</span>
-<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confusion Matrix:&#39;</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span>
-
-<span class="c1"># Menghitung dan menampilkan akurasi model</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy:&#39;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan laporan klasifikasi yang berisi precision, recall, dan f1-score</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
-Test accuracy: 0.7868852459016393
-[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 1 0 0 1 2 0 1 2 2 2
- 1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 1 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
- 1 2 0 1 2 0 0 0 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 0 2 1 0 2 0 0 1 1 0 1 0 1 1
- 1 0 2 1 0 0 2 0 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
- 0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 1 0 0 2 0 1 0 1 2 1 0 0 0 2 1 0 2 2
- 0 2 0 0 0 1 1 1 1 0 1 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
- 1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
- 2 1 1 1 1 1 2 1 0 2 1 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
- 2 0 1 0 2 2 1 2 1]
-Confusion Matrix: [[86 26  5]
- [18 85  9]
- [ 1  6 69]]
-Accuracy: 78.68852459016394 %
-              precision    recall  f1-score   support
-
-           0       0.82      0.74      0.77       117
-           1       0.73      0.76      0.74       112
-           2       0.83      0.91      0.87        76
-
-    accuracy                           0.79       305
-   macro avg       0.79      0.80      0.80       305
-weighted avg       0.79      0.79      0.79       305
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>MODEL TERBAIK YANG DIGUNAKAN ADALAH RANDOM FOREST</strong></p>
 <p>Model Random Forest adalah salah satu algoritma supervised learning dalam machine learning yang dapat digunakan untuk tugas klasifikasi dan regresi. Algoritma ini berada dalam kelompok ensemble learning yang menggabungkan beberapa pohon keputusan (decision trees) untuk membuat prediksi yang lebih akurat.</p>
 <p>Berikut adalah beberapa poin penjelasan tentang Model Random Forest:</p>
@@ -1720,6 +1729,68 @@ weighted avg       0.79      0.79      0.79       305
 <p>Kelas A muncul 2 kali.</p>
 <p>Kelas B muncul 1 kali.</p>
 <p>Maka, hasil prediksi akhir dari ensemble Random Forest adalah kelas A karena memiliki jumlah prediksi terbanyak.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RandomForest</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="c1"># Membuat model RandomForestClassifier</span>
+<span class="n">random_forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+
+<span class="c1"># Melatih model menggunakan data X_train dan y_train</span>
+<span class="n">random_forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan akurasi model pada data latih (train) dan data uji (test)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Train accuracy:&quot;</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test accuracy:&quot;</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+
+<span class="c1"># Melakukan prediksi terhadap data uji (test)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil prediksi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+
+<span class="c1"># Menghitung confusion matrix untuk mengevaluasi performa model</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confusion Matrix:&#39;</span><span class="p">,</span> <span class="n">cm</span><span class="p">)</span>
+
+<span class="c1"># Menghitung dan menampilkan akurasi model</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Accuracy:&#39;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan laporan klasifikasi yang berisi precision, recall, dan f1-score</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">random_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train accuracy: 0.9464033850493653
+Test accuracy: 0.8032786885245902
+[1 2 2 0 0 1 1 1 1 0 2 1 1 2 1 1 2 0 0 1 1 1 2 2 0 1 2 1 0 0 1 2 0 1 0 2 2
+ 1 0 2 2 0 2 2 0 1 2 1 0 0 1 0 1 1 1 1 2 0 0 1 0 1 1 1 0 2 1 2 1 2 2 2 1 1
+ 1 2 0 1 2 0 0 1 0 1 1 0 0 1 2 1 1 2 0 2 1 0 1 1 2 1 0 2 0 0 1 1 0 1 0 1 1
+ 1 0 2 1 0 0 2 0 2 1 0 0 1 2 2 1 1 1 1 0 0 1 1 0 0 2 1 0 1 2 1 2 2 0 0 2 0
+ 0 1 0 1 0 1 2 1 0 1 0 2 0 0 0 1 0 1 1 0 0 0 2 0 1 0 1 2 1 0 0 0 2 1 0 2 2
+ 0 2 0 0 0 1 1 1 1 1 0 1 2 0 1 1 1 2 2 1 1 1 2 1 1 2 1 0 0 1 2 1 2 0 0 2 2
+ 1 1 1 1 1 0 2 1 0 1 1 0 1 1 0 0 1 2 0 0 0 0 1 2 0 0 0 0 2 2 2 1 2 0 0 2 2
+ 2 1 1 1 1 1 2 1 1 2 0 2 2 0 1 2 2 0 0 2 0 0 0 0 2 2 0 2 0 1 1 2 1 0 0 0 2
+ 2 0 1 0 2 2 1 2 1]
+Confusion Matrix: [[88 25  4]
+ [15 88  9]
+ [ 2  5 69]]
+Accuracy: 80.32786885245902 %
+              precision    recall  f1-score   support
+
+           0       0.84      0.75      0.79       117
+           1       0.75      0.79      0.77       112
+           2       0.84      0.91      0.87        76
+
+    accuracy                           0.80       305
+   macro avg       0.81      0.82      0.81       305
+weighted avg       0.81      0.80      0.80       305
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>  <span class="c1"># Import library untuk RandomForestClassifier</span>

@@ -52,7 +52,7 @@ def main():
   if choice == 'EDA':
     st.subheader("EDA")
 
-    dataku = load_data('data/maternal_healt_risk.csv') 
+    dataku = load_data('maternal_healt_risk.csv') 
     st.dataframe(dataku.head(15))
 
     if st.checkbox("Show Summary") :

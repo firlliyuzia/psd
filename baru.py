@@ -12,7 +12,7 @@ import numpy as np
 # Data
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.use('Agg')
+#matplotlib.use('Agg')
 # import seaborn as sns
 
 @st.cache

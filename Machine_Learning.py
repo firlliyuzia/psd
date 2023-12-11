@@ -58,9 +58,6 @@ def main():
     dataku = load_data('data/maternal_healt_risk.csv') 
     st.dataframe(dataku.head(15))
 
-    if st.checkbox("Show Summary") :
-      st.write(dataku.describe())
-
     if st.checkbox("Show Shape") :
       st.write(dataku.shape)
 
